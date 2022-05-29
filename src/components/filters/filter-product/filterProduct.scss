@@ -1,0 +1,98 @@
+// @use 'ProductInfo';
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+$search-time: 800ms;
+$reset-time: 150ms;
+
+
+.searchContainer{
+    margin: 0 8px;
+	.search-box {
+        // border: solid 2px rgb(116, 117, 115);
+        display: inline-block;
+        position: relative;
+        border-radius: 50px;
+        input[type="text"] {
+			font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            width: 25px;
+            height: 25px;
+			padding-left: 20px;
+            border: none;
+            box-sizing: border-box;
+            border-radius: 50px;
+			border: solid 2px #a0a0a0;
+            transition: width $search-time cubic-bezier(0.68, -0.55, 0.27, 1.55) $reset-time;
+		&:focus {
+			outline: none;
+		}
+		&:focus, &:not(:placeholder-shown){
+			width: 120px;
+			height: 35px;
+			transition: width $search-time cubic-bezier(0.68, -0.55, 0.27, 1.55);
+			+ button[type="reset"] {
+				// background-color: aqua;
+				bottom: 10px;
+				right: 2px;
+				transition:
+					bottom $reset-time ease-out $search-time
+				, right $reset-time ease-out $search-time;
+			}
+			+ button[type="reset"]:after {
+				top: 0;
+				right: 10px;
+				opacity: 1;
+				transition:
+					top $reset-time ease-out ($search-time + $reset-time)
+				, right $reset-time ease-out ($search-time + $reset-time)
+				, opacity $reset-time ease ($search-time + $reset-time);
+			}
+		}
+	}
+	button[type="reset"] {
+		background-color: transparent;
+		// background-color: palevioletred;
+		width: 15px;
+		height: 15px;
+		border: 0;
+		padding: 0;
+		outline: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		bottom: -5px;
+		right: -10px;
+		transition: bottom $reset-time ease-out $reset-time, right $reset-time ease-out $reset-time;
+		&:before, &:after {
+			content: "";
+			height: 15px;
+			border-left: solid 2px  #a0a0a0;
+			position: absolute;
+			transform: rotate(-45deg);
+		}
+		&:after {
+			transform: rotate(45deg);
+			opacity: 0;
+			left: 5px;
+			bottom: -10px;
+			transition:
+				top $reset-time ease-out
+			, right $reset-time ease-out
+			, opacity $reset-time ease-out;
+		}
+	}
+}
+
+}
+@media only screen and (min-width:568px){
+	.searchContainer{
+			.search-box {
+				input[type="text"] {
+					&:focus, &:not(:placeholder-shown){
+						width: 170px;					
+					}
+				}
+			}
+	}
+}

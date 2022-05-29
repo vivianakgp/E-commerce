@@ -1,38 +1,115 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Yantramanav', sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App{
+    
+    /* margin-top: 2rem; */
+    /* padding:2rem 20px 0 20px; */
+    min-width: 320px;
+    max-width: 1500px;
+  /* background-color: rgb(251, 209, 228); */
 }
+footer{
+  height: 60px;
+  width: 100%;
+  background-color: #a0a0a0;
+  
+}
+/* loading screen */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* medias */
+@media only screen and (min-width:568px){
+  .App{
+    /* background-color: rgb(245, 167, 252); */
+  }
+}
+@media only screen and (min-width:990px){
+  .App{
+    padding: 0;
+    /* background-color: rgb(161, 222, 224); */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+/* sass */
+.searchContainer {
+  margin: 0 8px;
+}
+.searchContainer .search-box {
+  display: inline-block;
+  position: relative;
+  border-radius: 50px;
+}
+.searchContainer .search-box input[type=text] {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  width: 25px;
+  height: 25px;
+  padding-left: 20px;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 50px;
+  border: solid 2px #a0a0a0;
+  transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
+}
+.searchContainer .search-box input[type=text]:focus {
+  outline: none;
+}
+.searchContainer .search-box input[type=text]:focus, .searchContainer .search-box input[type=text]:not(:placeholder-shown) {
+  width: 120px;
+  height: 35px;
+  transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.searchContainer .search-box input[type=text]:focus + button[type=reset], .searchContainer .search-box input[type=text]:not(:placeholder-shown) + button[type=reset] {
+  bottom: 10px;
+  right: 2px;
+  transition: bottom 150ms ease-out 800ms, right 150ms ease-out 800ms;
+}
+.searchContainer .search-box input[type=text]:focus + button[type=reset]:after, .searchContainer .search-box input[type=text]:not(:placeholder-shown) + button[type=reset]:after {
+  top: 0;
+  right: 10px;
+  opacity: 1;
+  transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
+}
+.searchContainer .search-box button[type=reset] {
+  background-color: transparent;
+  width: 15px;
+  height: 15px;
+  border: 0;
+  padding: 0;
+  outline: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  position: absolute;
+  bottom: -5px;
+  right: -10px;
+  transition: bottom 150ms ease-out 150ms, right 150ms ease-out 150ms;
+}
+.searchContainer .search-box button[type=reset]:before, .searchContainer .search-box button[type=reset]:after {
+  content: "";
+  height: 15px;
+  border-left: solid 2px #a0a0a0;
+  position: absolute;
+  transform: rotate(-45deg);
+}
+.searchContainer .search-box button[type=reset]:after {
+  transform: rotate(45deg);
+  opacity: 0;
+  left: 5px;
+  bottom: -10px;
+  transition: top 150ms ease-out, right 150ms ease-out, opacity 150ms ease-out;
 }
 
-.App-link {
-  color: #61dafb;
+@media only screen and (min-width: 568px) {
+  .searchContainer .search-box input[type=text]:focus, .searchContainer .search-box input[type=text]:not(:placeholder-shown) {
+    width: 170px;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/*# sourceMappingURL=App.css.map */
